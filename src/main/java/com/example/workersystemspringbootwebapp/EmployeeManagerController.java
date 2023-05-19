@@ -1,10 +1,7 @@
 package com.example.workersystemspringbootwebapp;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,4 +57,23 @@ public class EmployeeManagerController {
         employees.remove(employee);
         return "redirect:/";
     }
+
+    private List<Employee> findEmployeesByLastName(String lastName) {
+        List<Employee> matchingEmployees = new ArrayList<>();
+        for (Employee employee : employees) {
+            if (employee.getLastName().equalsIgnoreCase(lastName)) {
+                matchingEmployees.add(employee);
+            }
+        }
+        return matchingEmployees;
+    }
+
+    @GetMapping("/search")
+    public String searchEmployees(@RequestParam("lastName") String lastName, Model model) {
+        List<Employee> matchingEmployees = findEmployeesByLastName(lastName);
+        model.addAttribute("employees", matchingEmployees);
+        return "index";
+    }
+
+
 }
