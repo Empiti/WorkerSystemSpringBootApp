@@ -53,4 +53,11 @@ public class EmployeeManagerController {
         employee.setSalary(updatedEmployee.getSalary());
         return "redirect:/";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable("id") int id) {
+        Employee employee = findEmployeeById(id);
+        employees.remove(employee);
+        return "redirect:/";
+    }
 }
