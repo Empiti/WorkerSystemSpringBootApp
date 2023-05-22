@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>WorkerSystemSpringBootWebApp</artifactId>
+    <artifactId>worker-system-spring-boot-web-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>WorkerSystemSpringBootWebApp</name>
+    <name>worker-system-spring-boot-web-app</name>
     <description>WorkerSystemSpringBootWebApp</description>
     <properties>
         <java.version>17</java.version>
@@ -39,7 +39,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-        </plugins>
+        </plugins><finalName>worker-system-spring-boot-web-app</finalName>
+
     </build>
 
 </project>
